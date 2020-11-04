@@ -41,12 +41,13 @@ void handler(int s)
     mq_notify(mqid, &sigv);//多次注册
     student stu;
 
-    if (mq_receive(mqid, (char*)&stu, size, NULL) == -1)
+    unsigned prino;
+    if (mq_receive(mqid, (char*)&stu, size, &prino) == -1)
     {
         ERR_EXIT("mq_receive");
     }
 
-    printf("student name = %s, age = %d\n", stu.name, stu.age);
+    printf("student name = %s, age = %d prino = %u\n", stu.name, stu.age, prino);
 }
 
 int main(int argc, char** argv)
