@@ -87,7 +87,7 @@ void do_service(int connfd)
     int n;
     while (1)
     {
-        memset(&recvbuf, 0, sizeof recvbuf);
+        memset(&recvbuf, 0, sizeof(recvbuf));
         int ret = readn(connfd, &recvbuf.len, 4);
         if (ret == -1)
         {
@@ -125,7 +125,7 @@ int main(int argc, char** argv) {
 
     // 2. 分配套接字地址
     struct sockaddr_in servaddr;
-    memset(&servaddr, 0, sizeof servaddr);
+    memset(&servaddr, 0, sizeof(servaddr));
     servaddr.sin_family = AF_INET;
     servaddr.sin_port = htons(6666);
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
