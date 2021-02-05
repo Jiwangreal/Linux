@@ -134,13 +134,13 @@ int main(int argc, char** argv) {
 
     int on = 1;
     // 确保time_wait状态下同一端口仍可使用
-    if (setsockopt(listenfd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof on) < 0)
+    if (setsockopt(listenfd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on)) < 0)
     {
         ERR_EXIT("setsockopt");
     }
 
     // 3. 绑定套接字地址
-    if (bind(listenfd, (struct sockaddr*) &servaddr, sizeof servaddr) < 0) {
+    if (bind(listenfd, (struct sockaddr*) &servaddr, sizeof(servaddr)) < 0) {
         ERR_EXIT("bind");
     }
     // 4. 等待连接请求状态
@@ -149,7 +149,7 @@ int main(int argc, char** argv) {
     }
     // 5. 允许连接
     struct sockaddr_in peeraddr;
-    socklen_t peerlen = sizeof peeraddr;
+    socklen_t peerlen = sizeof(peeraddr);
 
 
     // 6. 数据交换
