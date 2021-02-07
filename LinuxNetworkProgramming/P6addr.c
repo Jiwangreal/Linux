@@ -9,7 +9,7 @@ int main()
 
     struct in_addr ipaddr;
     ipaddr.s_addr=addr;
-    printf("%s=n",inet_ntoa(addr));    
+    printf("%s\n",inet_ntoa(addr));    
     return 0;
 }
 
